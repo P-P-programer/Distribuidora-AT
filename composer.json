@@ -1,5 +1,5 @@
 {
-  "name": "harry",
+  "name": "felip/harry",
   "type": "project",
   "require": {
     "php": "^8.1",

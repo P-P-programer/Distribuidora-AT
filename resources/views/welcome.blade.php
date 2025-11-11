@@ -16,9 +16,9 @@
       <li class="card">
         <div class="img-wrap">
           @if($p->image_path)
-            <img src="{{ asset('storage/'.$p->image_path) }}" alt="{{ $p->name }}">
+            <img src="{{ asset('img/'.$p->image_path) }}" alt="{{ $p->name }}">
           @else
-            <img src="{{ asset('images/placeholder.png') }}" alt="{{ $p->name }}">
+            <img src="{{ asset('img/placeholder.png') }}" alt="{{ $p->name }}">
           @endif
         </div>
         <h4>{{ $p->name }}</h4>
