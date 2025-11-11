@@ -1,0 +1,74 @@
+/* Fondo sutil para páginas de autenticación */
+.auth-page {
+  position: relative;
+  padding: 2rem 1rem;
+}
+.auth-page::before,
+.auth-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(600px 200px at 15% 20%, rgba(11,42,69,.08), transparent 60%),
+    radial-gradient(500px 180px at 85% 30%, rgba(11,42,69,.06), transparent 65%);
+}
+.auth-card {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbfd 100%);
+  border: 1px solid #e8eef6;
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 16px 48px rgba(2,6,23,.10);
+}
+
+/* Encabezado */
+.auth-header h2 {
+  margin: 0 0 .35rem;
+  font-size: 1.35rem;
+  letter-spacing: .4px;
+}
+.auth-header p {
+  margin: 0 0 .75rem;
+  font-size: .9rem;
+  color: #475569;
+}
+
+/* Formulario */
+.form-group { margin-top: .9rem; }
+.form-label { display:block; font-size:.92rem; color:#64748b; margin-bottom:.35rem; }
+.form-control {
+  display:block; width:100%;
+  padding:.55rem .65rem;
+  border:1px solid #e6edf3; border-radius:10px; background:#fff;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+.form-control:focus { box-shadow: 0 8px 22px rgba(11,42,69,.10); border-color:#cfe3f5; outline:0; }
+
+/* Checkbox “Recuérdame”: discreto */
+.form-check {
+  display:flex; align-items:center; gap:.5rem;
+  font-size:.85rem; color:#475569; margin-top:.7rem;
+}
+.form-check input[type="checkbox"] {
+  width:16px; height:16px; accent-color: var(--navy);
+}
+
+/* Acciones del formulario */
+.form-actions {
+  display:flex; justify-content:space-between; align-items:center; gap:.75rem; flex-wrap:wrap;
+  margin-top:1.1rem;
+}
+.link { color: var(--navy); font-size:.85rem; text-decoration:none; }
+.link:hover { text-decoration:underline; }
+.btn-primary { background: var(--navy); color: var(--white); border:1px solid rgba(255,255,255,.06); }
+.btn-soft { background: var(--surface); color: var(--navy); }
+
+/* Ajustes responsivos */
+@media (max-width: 480px) {
+  .auth-card { padding: 1rem; }
+}

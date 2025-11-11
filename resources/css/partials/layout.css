@@ -1,0 +1,104 @@
+/* Layout + header + nav + user menu (elegante, sutil y accesible) */
+
+.layout-root { min-height: 100dvh; display: flex; flex-direction: column; background: var(--bg); }
+
+/* HEADER */
+.app-header{
+  display:flex;align-items:center;gap:1rem;padding:.9rem 1.25rem;
+  background:linear-gradient(180deg,var(--navy) 0%,var(--navy-600) 100%);
+  color:var(--bg);box-shadow:0 6px 20px rgba(11,42,69,.08);position:relative;z-index:40
+}
+.brand{font-weight:700;font-size:1.125rem;letter-spacing:.2px}
+.header-actions{margin-left:auto;display:flex;align-items:center;gap:.65rem}
+
+/* nav desktop pegado al user */
+.header-nav{display:none;gap:.6rem;align-items:center}
+.header-nav .nav-link{color:var(--bg);padding:.35rem .6rem;border-radius:8px;font-weight:600}
+.header-nav .nav-link:hover{background:rgba(255,255,255,.06)}
+#cartBtn{margin-left:.25rem}
+
+/* botón hamburguesa solo móvil */
+.hamburger-mobile{display:none;padding:.35rem .5rem;border-radius:8px;background:transparent;color:var(--bg);border:1px solid rgba(255,255,255,.08)}
+
+/* dropdown usuario mejorado */
+.user-menu{position:relative}
+.user-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .5rem;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);color:var(--bg)}
+.dropdown{
+  position:absolute;right:0;top:calc(100% + .6rem);min-width:260px;background:linear-gradient(180deg,#ffffff 0%, #f4f9fc 100%);
+  color:#0b1b26;
+  border-radius:.75rem;border:1px solid #e8eef6;box-shadow:0 14px 40px rgba(2,6,23,.12);padding:.5rem;z-index:60;
+}
+.dropdown-header{display:flex;align-items:center;gap:.6rem;padding:.4rem .5rem}
+.dropdown-header .avatar{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#eef3f7;color:#0b2a45}
+.dropdown-role{font-size:.85rem;color:#6b7280}
+.dropdown-divider{height:1px;background:#eef3f7;margin:.35rem 0}
+.dropdown a,.dropdown button{display:flex;align-items:center;gap:.5rem;padding:.55rem .6rem;border-radius:.45rem;color:#0b1b26;background:transparent;border:0;width:100%;text-align:left;cursor:pointer}
+.dropdown a:hover,.dropdown button:hover{background:#f3f6fb}
+
+/* Panel desplegable móvil del header */
+.head-menu{
+  position:fixed; left:.5rem; right:.5rem; /* top se ajusta vía JS según alto del header */
+  background:#fff; color:#0b1b26; border:1px solid #e8eef6; border-radius:.75rem;
+  box-shadow:0 18px 48px rgba(2,6,23,.14); padding:.4rem; z-index:50;
+  transform-origin: top right; transform: scale(.98); opacity:0; transition: transform .18s ease, opacity .18s ease;
+}
+.head-menu.open{ transform: scale(1); opacity:1 }
+.head-menu nav a{display:flex;align-items:center;gap:.6rem;padding:.65rem .7rem;border-radius:.5rem}
+.head-menu nav a:hover{background:#f3f6fb}
+
+/* Responsive */
+@media (min-width: 992px){
+  .header-nav{display:flex}
+  .hamburger-mobile{display:none}
+  .head-menu{display:none}
+}
+@media (max-width: 991px){
+  .header-nav{display:none}
+  .hamburger-mobile{display:inline-flex}
+  /* dropdown del usuario más visible en móvil: ancho casi completo */
+  .dropdown{position:fixed;left:.5rem;right:.5rem;top:70px;min-width:auto;border-radius:.65rem}
+}
+
+/* CONTENT + footer */
+.container{flex:1 1 auto;padding:1.25rem;max-width:1200px;margin:0 auto;width:100%}
+
+/* Footer sticky at bottom */
+.site-footer{
+  margin-top:auto;
+  padding:1.1rem 1.25rem;
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-600) 100%) !important;
+  color: var(--white) !important;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.15);
+  font-size:.92rem;
+  letter-spacing:.3px;
+}
+.site-footer p,
+.site-footer a { color: var(--white) !important; opacity:.92; }
+.site-footer a:hover { text-decoration:underline; }
+
+/* subtle card elevation used across app */
+.elevated{
+  background:#fff;border-radius:12px;border:1px solid #eef3f7;box-shadow:0 10px 30px rgba(2,6,23,0.04);padding:1rem;
+}
+
+/* small helpers */
+.kv{display:flex;justify-content:space-between;gap:1rem}
+.kv b{color:#0b2a45}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .app-header{padding:.7rem .9rem}
+  .brand{font-size:1rem}
+  .dropdown{right:.25rem;left:.25rem}
+}
+
+/* Asegurar dropdown del usuario aparece correctamente sobre nav */
+.user-menu { margin-left: auto; position: relative; }
+
+/* breadcrumb */
+.breadcrumb ol{list-style:none;display:flex;gap:.5rem;padding:0;margin:0 0 1rem;font-size:.75rem}
+.breadcrumb li{display:flex;align-items:center;gap:.4rem;color:#64748b}
+.breadcrumb a{color:var(--navy);text-decoration:none;font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+.breadcrumb li+li:before{content:"/";color:#94a3b8}

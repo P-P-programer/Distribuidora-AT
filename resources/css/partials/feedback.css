@@ -1,0 +1,82 @@
+/* Alertas inline */
+.alert {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: .75rem .9rem;
+  font-size: .9rem;
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+}
+.alert svg { flex: 0 0 18px; margin-top: 2px; }
+.alert p { margin: 0; }
+.alert-success { background:#ecfdf5; border-color:#bbf7d0; color:#065f46; }
+.alert-error   { background:#fef2f2; border-color:#fecaca; color:#7f1d1d; }
+.alert-info    { background:#eff6ff; border-color:#bfdbfe; color:#1e3a8a; }
+.alert-warning { background:#fffbeb; border-color:#fde68a; color:#92400e; }
+
+/* Contenedor de toasts */
+#toast-root {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 70;
+  display: grid;
+  gap: .6rem;
+}
+@media (max-width: 640px) {
+  #toast-root { left: 12px; right: 12px; }
+}
+
+/* Toast */
+.toast {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  align-items: start;
+  gap: .6rem;
+  padding: .7rem .8rem;
+  background: #ffffff;
+  border: 1px solid #e6edf3;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.12);
+  color: #0f172a;
+  min-width: 260px;
+}
+.toast.success { border-color:#bbf7d0; }
+.toast.error   { border-color:#fecaca; }
+.toast.info    { border-color:#bfdbfe; }
+.toast.warning { border-color:#fde68a; }
+
+.toast .title { font-weight: 700; font-size: .9rem; margin: 0 0 .15rem; }
+.toast .msg   { font-size: .85rem; color:#475569; margin: 0; }
+.toast .close {
+  background: transparent; border: 0; color:#64748b; cursor: pointer;
+  padding: .2rem; border-radius: 6px;
+}
+.toast .close:hover { background: #f1f5f9; }
+
+.toast .icon { color: #0b2a45; }
+.toast.success .icon { color:#047857; }
+.toast.error   .icon { color:#b91c1c; }
+.toast.info    .icon { color:#1e3a8a; }
+.toast.warning .icon { color:#92400e; }
+
+/* Animaciones */
+.toast-enter {
+  transform: translateY(6px);
+  opacity: 0;
+}
+.toast-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform .18s ease, opacity .18s ease;
+}
+.toast-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+.toast-exit-active {
+  transform: translateY(6px);
+  opacity: 0;
+  transition: transform .18s ease, opacity .18s ease;
+}
